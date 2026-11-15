@@ -11,6 +11,7 @@
     <Using Include="System.Numerics" />
     <Using Include="System.Console" Static="true" />
     <Using Include="System.Environment" Alias="Env" />
+    <Using Include="System.Dynamic" />
   </ItemGroup>
 
 </Project>
