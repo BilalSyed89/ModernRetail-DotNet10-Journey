@@ -26,4 +26,26 @@ Dictionary<int, List<string>> customers =
     new Dictionary<int, List<string>>();
 
 
-    
+    //What is the newest syntax to create an instance of a class like XmlDocument?
+
+    XmlDocument xmlDocument = new XmlDocument();
+
+    XmlDocument xmlDocument = new();
+
+    //How do you right-align a format string?
+
+    // In C# string interpolation, use a comma and a width value inside the braces
+    //{value,width}
+
+    int apples = 12;
+
+Console.WriteLine($"|{apples,10}|");
+
+// What type would you choose for the following “numbers”?
+
+public record Medicine(
+    int Id,
+    string Name,
+    decimal SalePrice,
+    decimal PurchasePrice,
+    double WeightInKg);
