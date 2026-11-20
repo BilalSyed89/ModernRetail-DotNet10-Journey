@@ -1,51 +1,37 @@
-﻿Console.WriteLine("summary/chapter-02");
+﻿Console.WriteLine("Null-coalescing operators");
 
 
-//How can you determine how many bytes a type like double uses in memory?
-
-Console.WriteLine(sizeof(double));
-
-Console.WriteLine("More-Examples");
-
-Console.WriteLine($"byte: {sizeof(byte)}");
-Console.WriteLine($"short: {sizeof(short)}");
-Console.WriteLine($"int: {sizeof(int)}");
-Console.WriteLine($"long: {sizeof(long)}");
-Console.WriteLine($"float: {sizeof(float)}");
-Console.WriteLine($"double: {sizeof(double)}");
-Console.WriteLine($"decimal: {sizeof(decimal)}");
-
-//When should you use the var keyword?
-
-// Use var when the type is obvious from the right-hand side of the assignment and using var makes the code easier to read.
-
-Dictionary<int, List<string>> customers =
-    new Dictionary<int, List<string>>();
-
-    var customers =
-    new Dictionary<int, List<string>>();
+// Before null-coalescing
 
 
-    //What is the newest syntax to create an instance of a class like XmlDocument?
+string name;
+string inputName=null;
 
-    XmlDocument xmlDocument = new XmlDocument();
+if (inputName != null)
+{
+    name = inputName;
+}
+else
+{
+    name = "Unknown";
+}
 
-    XmlDocument xmlDocument = new();
+Console.WriteLine(name);
 
-    //How do you right-align a format string?
+//Much simpler with ??
 
-    // In C# string interpolation, use a comma and a width value inside the braces
-    //{value,width}
+ name = inputName ?? "Unknown";
 
-    int apples = 12;
+ Console.WriteLine(name);
 
-Console.WriteLine($"|{apples,10}|");
+ //Null-Coalescing Operator (??)
 
-// What type would you choose for the following “numbers”?
+ string? medicineName=null;
 
-public record Medicine(
-    int Id,
-    string Name,
-    decimal SalePrice,
-    decimal PurchasePrice,
-    double WeightInKg);
+ Console.WriteLine(medicineName ?? "No Medicine ");
+
+ int? age = null;
+
+int displayAge = age ?? 0;
+
+Console.WriteLine(displayAge);
