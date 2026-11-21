@@ -10,6 +10,7 @@
   <ItemGroup>
     <ProjectReference Include="..\PacktLibraryNet2\PacktLibraryNet2.csproj" />
     <Using Include="System.Console" Static="true" />
+    <PackageReference Include="Dumpify" Version="0.6.6" />
   </ItemGroup>
 
 </Project>

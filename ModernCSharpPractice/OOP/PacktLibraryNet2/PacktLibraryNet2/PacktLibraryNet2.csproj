@@ -11,6 +11,14 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="MedicineBatch.Audit.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="MedicineBatch.Audit.cs" />
+  </ItemGroup>
   <ItemGroup Label="To simplify use of Console members.">
     <Using Include="System.Console" Static="true" />
   </ItemGroup>
