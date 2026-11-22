@@ -2,6 +2,11 @@
 
 public partial class Person
 {
+
+
+
+
+
     public static decimal CostOfBatch(string batchNo)
     {
         if (string.IsNullOrWhiteSpace(batchNo))

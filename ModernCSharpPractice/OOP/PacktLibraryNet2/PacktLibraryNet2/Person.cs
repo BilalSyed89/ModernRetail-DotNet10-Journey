@@ -70,7 +70,14 @@ public partial class Person
 
 
     public CustomerInfo GetCustomerInfo()
+
+
     {
+
+        StockCalculator calculator = new();
+        calculator.CalculateValue();
+
+
         return ("PoundsSHop", "123 Main St", "555-1234");
     }
 

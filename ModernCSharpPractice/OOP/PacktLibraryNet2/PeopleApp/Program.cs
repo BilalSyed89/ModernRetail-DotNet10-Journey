@@ -124,3 +124,66 @@ batch.ChangeBatchNumber("BATCH-001");
 batch.ChangeBatchNumber("BATCH-002");
 
 Console.WriteLine($"Current batch: {batch.BatchNumber}");
+
+
+Person sam = new()
+{
+    Name = "Sam",
+    Born = new(1969, 6, 25, 0, 0, 0, TimeSpan.Zero)
+};
+WriteLine(sam.Origin);
+WriteLine(sam.Greeting);
+WriteLine(sam.Age);
+
+
+
+sam.FavoriteIceCream = "Chocolate Fudge";
+WriteLine($"Sam's favorite ice-cream flavor is {sam.FavoriteIceCream}.");
+string color = "Red";
+try
+{
+    sam.FavoritePrimaryColor = color;
+    WriteLine($"Sam's favorite primary color is {sam.
+  FavoritePrimaryColor}.");
+    
+}
+catch (Exception ex)
+{
+    WriteLine("Tried to set {0} to '{1}': {2}",
+      nameof(sam.FavoritePrimaryColor), color, ex.Message);
+}
+
+
+//init only properties
+
+ImmutablePerson jeff = new()
+{
+    FirstName = "Jeff",
+    LastName = "Winger"
+};
+
+ImmutableVehicle car = new()
+{
+    Wheels = 4,
+    Color = "Red",
+    Brand = "Toyota"
+};
+
+ImmutableVehicle repaintedCar = car
+  with
+{ Color = "Polymetal Grey Metallic" };
+
+WriteLine($"Original car color was {car.Color}.");
+WriteLine($"New car color is {repaintedCar.Color}.");
+
+//example of positional record
+Engineer engineer = new("Sarah", "Aerospace");
+
+WriteLine($"Engineer {engineer.Name} specializes in {engineer.Specialty}.");
+
+
+
+//Example of protected access modifier
+
+Car cars = new();
+cars.StartInspection(); // Allowed because StartInspection is public
