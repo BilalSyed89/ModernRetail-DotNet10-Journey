@@ -30,7 +30,7 @@ internal class StockCalculator
 //Exmple of protected access modifier
 public class Vehicle
 {
-    private protected  void CheckEngine()
+    protected  void CheckEngine()
     {
         Console.WriteLine("Checking engine...");
     }
