@@ -101,6 +101,17 @@ namespace Packt.Shared
         }
         #endregion
 
+        #region Delegates
+     
+        public int LengthOfText(string text) {
+        
+        return text.Length;
+        }
+
+
+
+        #endregion
+
 
     }
-        }
+}
