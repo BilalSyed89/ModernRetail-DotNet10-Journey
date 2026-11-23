@@ -11,20 +11,7 @@ static void ShowMessage(string message)
 
 
 
-static void OnButtonClicked(string itemname,
-    string batchno,
-    NotificationHandler notification) { 
 
-
-    notification($"Item {itemname} saved");
-    notification($"Batch {batchno} not expire");
-    notification($"Save Suceesfully");
-
-
-
-}
-
-OnButtonClicked("Soap", "B123", ShowMessage);
 
 
 
@@ -34,7 +21,7 @@ OnButtonClicked("Soap", "B123", ShowMessage);
         string employeeName,
         decimal dailySalary,
         int workingDays,
-        NotificationHandler notification)
+       Action<string> notification)
     {
         decimal totalSalary = dailySalary * workingDays;
 
@@ -57,6 +44,6 @@ CalculateSalary("Hassan", 90m, 20, ShowMessage);
 CalculateSalary("Hassan", 120m, 20, ShowMessage);
 
 
-public delegate void NotificationHandler(string message);
+
 
 
