@@ -1,8 +1,14 @@
-﻿using System.Globalization; // To use CultureInfo.
+﻿using Packt.Shared;
+using System.Globalization; // To use CultureInfo.
 
 partial class Program
 
 {
+ 
+
+
+    
+
   private static void ConfigureConsole(
     string culture = "en-US",
     bool useComputerCulture = false,
@@ -19,4 +25,7 @@ partial class Program
   DisplayName}.");
     }
 }
+
+
+    
 }

@@ -22,7 +22,7 @@ namespace Packt.Shared
 
         #region Methods
 
-        public void WriteToConsole() {
+        public virtual void WriteToConsole() {
 
             WriteLine($"{Name2} was born on {Born2:dddd}.");
         }
@@ -111,6 +111,13 @@ namespace Packt.Shared
 
 
         #endregion
+
+        public void Hire(Person manager, Person employee)
+        {
+            ArgumentNullException.ThrowIfNull(manager);
+            ArgumentNullException.ThrowIfNull(employee);
+           
+}           
 
 
     }
