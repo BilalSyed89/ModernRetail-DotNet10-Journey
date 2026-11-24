@@ -3,66 +3,76 @@
 
 
 
-static void ShowMessage(string message)
-{
+void ShowMessage(string message) { 
+
     Console.WriteLine(message);
+
 }
 
+//Action<string> ShowMessageAction = ShowMessage;
 
-
-static void CalculateSalary(
-    string employeeName,
-    decimal dailySalary,
-    int workingDays,
-    Func<decimal, int, decimal> calculator,
-    Action<string> notification)
+decimal salaryCalculator(decimal salary, int days)
 {
-    decimal totalSalary = calculator(dailySalary, workingDays);
+    return salary * days;
+}
 
-    notification($"Calculating salary for {employeeName}...");
-    notification($"Daily salary: {dailySalary:C}");
-    notification($"Working days: {workingDays}");
-    notification($"Total salary: {totalSalary:C}");
-    notification("Summary Ends....");
-    notification("============================================================");
+decimal calculateBonus(decimal salary,decimal bonusRate) {
+
+
+    return salary + bonusRate;
+
+
+}
+
+bool CheckDays(int days)
+{
+    if (days < 0)
+    {
+        ShowMessage("Days cannot be negative");
+        return false;
+    }
+    return true;
 }
 
 
+void CalculateSalary(string employeeName,
+    decimal Salary,
+    int days,decimal bonusRate,Predicate<int> dayValidator,Func<decimal,int,decimal> calculator,Func<decimal,decimal,decimal> bonusCalculator,
+    Action<string> notification) {
+    
+    if (!dayValidator(days))
+    {
+
+     
+        return;
+    }
+
+    decimal totalSalary = calculator(Salary, days);
+
+    decimal bonus = bonusCalculator(Salary, bonusRate);
+
+    notification($"EmployeeName : {employeeName}");
+
+    notification($"Salary : {Salary}");
+
+    notification($"Days : {days}");
+
+    notification($"Total Salary : {totalSalary}");
+
+    notification($"Bonus : {bonusRate}");
+
+    notification($"Salary after Bonus  : {bonus}");
+
+    notification("Salary Calculation Completed");
+
+    notification("--------------------------------------------------");
+
+}
 
 
+CalculateSalary("John", 1000, 20,3, CheckDays, salaryCalculator,calculateBonus, ShowMessage);
+CalculateSalary("Jane", 1500, 15,3, CheckDays, salaryCalculator,calculateBonus, ShowMessage);
+CalculateSalary("Bob", 2000, 10,3, CheckDays, salaryCalculator,calculateBonus, ShowMessage);
+CalculateSalary("Alice", 2500, -1,3, CheckDays, salaryCalculator,calculateBonus  , ShowMessage);
 
 
-Func<decimal, int, decimal> salaryCalculator =
-    (dailySalary, workingDays) => dailySalary * workingDays;
-
-
-
-
-
-CalculateSalary(
-    "Bilal",
-    65.5m,
-    20,
-    salaryCalculator,
-    ShowMessage);
-
-CalculateSalary(
-    "Hadi",
-    70m,
-    20,
-    salaryCalculator,
-    ShowMessage);
-
-CalculateSalary(
-    "Hassan",
-    90m,
-    20,
-    salaryCalculator,
-    ShowMessage);
-
-CalculateSalary(
-    "Haider",
-    120m,
-    20,
-    salaryCalculator,
-    ShowMessage);
